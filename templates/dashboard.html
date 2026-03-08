@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Dashboard</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<div class="dashboard">
+
+<a class="logout" href="/logout">Logout</a>
+
+<h2>Dashboard</h2>
+
+<form method="POST" enctype="multipart/form-data">
+
+<textarea name="note" placeholder="Write note"></textarea>
+
+<input type="file" name="image">
+
+<button type="submit">Save</button>
+
+</form>
+
+<hr>
+
+{% for n in notes %}
+
+<div class="note">
+
+<p>{{n.note}}</p>
+
+<img src="/uploads/{{n.image}}" width="200">
+
+</div>
+
+{% endfor %}
+
+</div>
+
+</body>
+</html>
